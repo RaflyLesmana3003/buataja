@@ -14,11 +14,13 @@ class CreateMembershipsTable extends Migration
     public function up()
     {
         Schema::create('memberships', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
             $table->String('id_creator');
             $table->String('id_user');
             $table->String('paket');
             $table->String('tenggatwaktu');
-            $table->String('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

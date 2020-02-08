@@ -3,6 +3,8 @@
 @section('title','penarikan')
 
 @section('content')
+
+
 <div class="header bg-warning pb-6">
   <div class="container-fluid">
     <div class="header-body">
@@ -219,10 +221,11 @@
             <label class="form-control-label text-muted" for="validationCustom02">potongan 10% dari total penarikan anda</label>
 
                 <br>
-              <div class="align-right">  <button class="btn btn-warning ld-ext-right"  type="submit"> ajukan penarikan </button>
+              <div class="align-right"> 
+              
               </div>
 
-              </form>
+              </form> <button class="btn btn-warning ld-ext-right" onclick="modalhapus()"> ajukan penarikan </button>
             </div>
           </div>
 
@@ -230,8 +233,47 @@
     </div>
     </div>
     </div>
+    <div class="col-md-4">
+    <div class="modal fade" id="modal-hapus" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content bg-gradient-warning">
+
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modal-title-notification">masukkan password anda?</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+          <span id="message1"></span>
+
+                    <input type="hidden" id="idpost">
+                    <div class="py-3 text-center">
+                        <!-- <h4 class="heading mt-4" id="title">You should read this!</h4> -->
+                        <label for="password">password</label>
+                        <input type="password" form="form" required id="password" class="form-control">
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-link text-white ml-auto" onclick="hapuspost()">batal</button> -->
+                    <!-- <button type="button" form="form" type="submit" class="btn btn-white" >ajukan penarikan</button> -->
+                  <button class="btn btn-white ld-ext-right " id="btn1" form="form" type="submit" >ajukan penarikan</button>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
     <script type="text/javascript">
+    function modalhapus() {
+          $('#modal-hapus').modal('show');
+      }
+
     $("select option[value='"+$('#banks').val()+"']").attr("selected","selected");
     </script>
     <script type="text/javascript">
@@ -298,6 +340,7 @@ $('#form').submit(function() {
   data();
 
   var formData = new FormData();
+  formData.append('password', $('#password').val());
   formData.append('jumlah', $('#jumlah').val());
   formData.append('atasnama', $('#nama').val());
   formData.append('bank', $('#bank').val());
@@ -333,7 +376,7 @@ $('#form').submit(function() {
     error: function(file, response)
     {
 
-      $("#message").append('<div  class="aa alert alert-'+file.responseJSON.tipe+' alert-block"><button type="button" class="close" data-dismiss="alert">×</button> <strong>'+file.responseJSON.data+'</strong></div>');
+      $("#message1").append('<div  class="aa alert alert-'+file.responseJSON.tipe+' alert-block"><button type="button" class="close" data-dismiss="alert">×</button> <strong>'+file.responseJSON.data+'</strong></div>');
       setTimeout("$('.aa').fadeOut(1000);", 3000);
       $("html, body").animate({ scrollTop: 0 }, "slow");
       setTimeout("location.reload();", 3000);

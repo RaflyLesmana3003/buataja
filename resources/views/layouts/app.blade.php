@@ -128,7 +128,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('f27fc78ffa140e97e0c535374a2a2213') }}">
                                 <i class="fa fa-money text-primary"></i>
-                                <span class="nav-link-text">transaksi</span>
+                                <span class="nav-link-text">saldo</span>
                             </a>
                         </li>
                         <li class="nav-item">

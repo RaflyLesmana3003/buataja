@@ -111,7 +111,7 @@
                     <td>  @if($posts->privilage == -1)
                       <span class="badge badge-pill badge-secondary">publik</span>
                       @elseif($posts->privilage == -2)
-                      <span class="badge badge-pill badge-primary">member</span>
+                      <span class="badge badge-pill badge-primary">pendukung</span>
                       @else
                       <span class="badge badge-pill badge-warning">paket</span>
                       @endif</td>

@@ -174,7 +174,7 @@
        <div class="row justify-content-center text-center">
          <div class="col-md-6">
            <h2 class="display-3 text-white">Kenapa harus ke buataja?</h3>
-               <p class=" mt-4">Dengan membantu 1 kreator, anda juga telah berkontribusi kepada perkembangan konten kreator lain nya, kami buataja.id mewakili seluruh konten kreator di Indonesia, mengucapkan terimakasih atas apresiasi anda kepada konten kreator lokal, maupun Internasional.</p>
+               <p class="text-white mt-4">Dengan membantu 1 kreator, anda juga telah berkontribusi kepada perkembangan konten kreator lain nya, kami buataja.id mewakili seluruh konten kreator di Indonesia, mengucapkan terimakasih atas apresiasi anda kepada konten kreator lokal, maupun Internasional.</p>
          </div>
        </div>
      </section>

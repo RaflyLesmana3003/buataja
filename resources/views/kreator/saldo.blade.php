@@ -187,7 +187,7 @@ function time_elapsed_string($datetime, $full = false) {
               @foreach ($with as $withs)
               <tr>
 
-                <td>{{$withs->jumlah}}</td>
+                <td>Rp.{{$withs->jumlah}}</td>
                 <td>{{$withs->rekening_tujuan}}</td>
                 <td>{{$withs->atas_nama}}</td>
                 <td>{{$withs->name}}</td>

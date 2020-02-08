@@ -30,7 +30,22 @@ class HomeController extends Controller
 
     public function index()
     {
+        $date = date("Y-m-d");
+        $ifmember = DB::table('memberships')->whereRaw('memberships.id_user = ('.Auth::user()->id.') AND memberships.status = 1 ')->get();
 
+        if (isset($ifmember)) {
+            foreach ($ifmember as $ifmembers) {
+                if ($ifmembers->tenggatwaktu < $date) {
+                    DB::table('memberships')->where('id',$ifmembers->id)->update([
+                        'status' => 0,
+                        ]);
+                    DB::table('creators')->where('id',$ifmembers->id_creator)->decrement('followers');
+
+                }
+            }
+    }
+           
+                    
         $user = DB::table('users')->where([['id', '=',Auth::user()->id]])->get();
         $datas = [];
         $foll = [];

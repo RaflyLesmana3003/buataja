@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title','Creator Home')
+@section('title')
+@foreach ($user as $users)
+{{$users->name}}
+@endforeach
+@endsection
 
 @section('content')
     <!-- Header -->
@@ -859,6 +863,8 @@ function time_elapsed_string($datetime, $full = false) {
         </div>
         @endforeach
         </div>
+    <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
+
         <script>
 $(document).ready(function(){
 	var maxLength = 300;

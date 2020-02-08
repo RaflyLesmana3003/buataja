@@ -19,7 +19,7 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        'finishpayment',
-        'notificationfinishpayment',
+        'd2db4b7025da2358d8279ecca5ef6832',
+        '4760e8b83f2c2011f16f67c4d98b426d',
      ];
 }

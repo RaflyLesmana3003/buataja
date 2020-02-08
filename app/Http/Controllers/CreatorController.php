@@ -5,6 +5,8 @@ use App\creator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Auth;
 use Socialite;
 
@@ -22,9 +24,13 @@ class CreatorController extends Controller
     }
     public function penarikan(Request $request)
     {
+        $password="0";
+        $passwords=$request->get('password');
       // code...
-
-      $kreator = 0;
+      $user = DB::table('users')->whereRaw('id = ('.Auth::user()->id.') ')->get();
+      foreach ($user as $users) {
+        if (Hash::check( $passwords,$users->password)) {
+            $kreator = 0;
       $creator = DB::table('creators')->where('ID_USER', '=',Auth::user()->id)->get();
       foreach ($creator as $key) {
           $kreator = $key->id;
@@ -40,6 +46,13 @@ class CreatorController extends Controller
         'created_at' =>now(),
 
      ]);
+        }else{
+          return response(['data'=>"password salah",'tipe'=>"danger"], 404);
+        }
+      }
+      
+
+      
     }
 public function databank(Request $request)
 {

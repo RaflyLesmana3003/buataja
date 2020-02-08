@@ -118,8 +118,8 @@ return view('content/page',['data' => $post,'likes' => $iflike]);
 
 Route::get('kreator/profil/{id}','Controller@lihatkreator');
 Route::post('da5e6997913d68b2b6a59381a94e664a','Controller@search');
-Route::post('a4010945e4bd924bc2a890a2effea0e6','followerController@follow');
-Route::post('88d162b834d465685172b3f4978497d2','followerController@unfollow');
+Route::post('a4010945e4bd924bc2a890a2effea0e6','FollowerController@follow');
+Route::post('88d162b834d465685172b3f4978497d2','FollowerController@unfollow');
 Route::post('360546da09facea5c42a224ac273c4a6','CreatorController@like');
 Route::post('c9974434a9b5e8898f157f45b5575d88','CreatorController@unlike');
 Route::post('likecomment/{id}','CommentController@like');

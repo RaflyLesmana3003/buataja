@@ -115,13 +115,18 @@ class TransaksiController extends Controller
     {
 //       $Data = $request->Data;
 // dd($request->request->getParameters());
+      
+
       $notif = new Veritrans_Notification();
          \DB::transaction(function() use($notif) {
            $transaction = $notif->transaction_status;
            $type = $notif->payment_type;
            $orderId = $notif->order_id;
            $fraud = $notif->fraud_status;
+          $transaksi = DB::table('transaksis')->where('kode', '=',$orderId)->first();
            $donation = transaksi::where('kode', '=', $orderId)->firstOrFail();
+
+         
 
            if ($transaction == 'capture') {
 
@@ -133,7 +138,51 @@ class TransaksiController extends Controller
                  // TODO merchant should decide whether this transaction is authorized or not in MAP
                  // $donation->addUpdate("Transaction order_id: " . $orderId ." is challenged by FDS");
                  $donation->setPending();
-               } else {
+               } else {  //member
+                $date = date("Y-m-d");
+                $date1 = strtotime(date("Y-m-d", strtotime($date)) . " +1 month");
+                $date2 = date("Y-m-d",$date1);
+                DB::table('memberships')->insert([[
+                  'id_creator' => $transaksi->ID_CREATOR, 
+                  'id_user' => $transaksi->ID_USER,  
+                  'paket' => $transaksi->ID_PAKET, 
+                  'tenggatwaktu' => $date2, 
+                  'status' => 1, 
+                  'created_at' => $date,
+                ]]);
+
+                $user = DB::table('followers')->where('id_user', $transaksi->ID_USER)->first();
+
+                if ($user == null) {
+                            DB::table('followers')->insert([
+                              [
+                                 'id_user' => $transaksi->ID_USER,
+                                 'id_following' => $transaksi->ID_CREATOR,
+                              ]
+                            ]);
+                }else{
+                        $idfollow;
+                        $follow = DB::table('followers')->where('id_user', $transaksi->ID_USER)->get();
+                        foreach ($follow as $follows) {
+                            $idfollow = $follows->id_following;
+                        }
+                        if ($idfollow === "") {
+                            DB::table('followers')->where('id_user',$transaksi->ID_USER)->update([
+                
+                                'id_user' =>  $transaksi->ID_USER,
+                                'id_following' => $transaksi->ID_CREATOR,
+                                ]);
+                        }else{
+                            DB::table('followers')->where('id_user',$transaksi->ID_USER)->update([
+                
+                                'id_user' =>  $transaksi->ID_USER,
+                                'id_following' => $idfollow.','.$transaksi->ID_CREATOR,
+                                ]);
+                
+                        }
+                }
+                DB::table('creators')->where('id',$transaksi->ID_CREATOR)->increment('followers');
+
                  // TODO set payment status in merchant's database to 'Success'
                  // $donation->addUpdate("Transaction order_id: " . $orderId ." successfully captured using " . $type);
                  $donation->setSuccess();
@@ -142,7 +191,49 @@ class TransaksiController extends Controller
              }
 
            } elseif ($transaction == 'settlement') {
+  //member
+  $date = date("Y-m-d");
+      $date1 = strtotime(date("Y-m-d", strtotime($date)) . " +1 month");
+      $date2 = date("Y-m-d",$date1);
+  DB::table('memberships')->insert([[
+    'id_creator' => $transaksi->ID_CREATOR, 
+    'id_user' => $transaksi->ID_USER,  
+    'paket' => $transaksi->ID_PAKET, 
+    'tenggatwaktu' => $date2, 
+    'status' => 1, 
+    'created_at' => $date,
+  ]]);
+  $user = DB::table('followers')->where('id_user', $transaksi->ID_USER)->first();
 
+  if ($user == null) {
+              DB::table('followers')->insert([
+                [
+                   'id_user' => $transaksi->ID_USER,
+                   'id_following' => $transaksi->ID_CREATOR,
+                ]
+              ]);
+  }else{
+          $idfollow;
+          $follow = DB::table('followers')->where('id_user', $transaksi->ID_USER)->get();
+          foreach ($follow as $follows) {
+              $idfollow = $follows->id_following;
+          }
+          if ($idfollow === "") {
+              DB::table('followers')->where('id_user',$transaksi->ID_USER)->update([
+  
+                  'id_user' =>  $transaksi->ID_USER,
+                  'id_following' => $transaksi->ID_CREATOR,
+                  ]);
+          }else{
+              DB::table('followers')->where('id_user',$transaksi->ID_USER)->update([
+  
+                  'id_user' =>  $transaksi->ID_USER,
+                  'id_following' => $idfollow.','.$transaksi->ID_CREATOR,
+                  ]);
+  
+          }
+  }
+  DB::table('creators')->where('id',$transaksi->ID_CREATOR)->increment('followers');
              // TODO set payment status in merchant's database to 'Settlement'
              // $donation->addUpdate("Transaction order_id: " . $orderId ." successfully transfered using " . $type);
              $donation->setSuccess();
