@@ -17,6 +17,8 @@ class CreateWithdrawalsTable extends Migration
             $table->bigIncrements('id');
             $table->string('ID_CREATOR')->nullable();
 
+            $table->string('fee')->nullable();
+            $table->string('total')->nullable();
             $table->string('jumlah')->nullable();
             $table->string('atas_nama')->nullable();
             $table->string('rekening_tujuan')->nullable();

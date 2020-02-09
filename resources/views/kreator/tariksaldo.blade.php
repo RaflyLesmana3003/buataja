@@ -318,7 +318,8 @@ function data()  {
     $("#message").append('<div  class="aa alert alert-success alert-block"><button type="button" class="close" data-dismiss="alert">×</button> <strong>data anda telah diupdate</strong></div>');
       setTimeout("$('.aa').fadeOut(1000);", 3000);
       $("html, body").animate({ scrollTop: 0 }, "slow");
-      setTimeout("location.reload();", 3000);
+      setTimeout("window.location.href = '{{url('f27fc78ffa140e97e0c535374a2a2213')}}';", 3000);
+
 
   },
     error: function(file, response)

@@ -3,14 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\follower;
+use App\User;
 use App\creator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\following;
 
 
 class FollowerController extends Controller
 {
+    use Notifiable;
+
     /**
      * Display a listing of the resource.
      *
@@ -81,8 +86,20 @@ if ($user == null) {
 
         }
 }
+
 DB::table('creators')->where('id',$Data['id'])->increment('followers');
 
+//send notif
+$creator = DB::table('creators')->where('id',$Data['id'])->first();
+$creatora = DB::table('users')->where('id',$creator->ID_USER)->first();
+$data = [ 
+    'username' => Auth::user()->name,
+    'creatorname' => $creatora->name
+   ];
+
+  $user = new User();
+  $user->email = $creatora->email;   // This is the email you want to send to.
+  $user->notify(new following($data));
         // if (!$user) {
 
         // }
@@ -112,7 +129,6 @@ DB::table('creators')->where('id',$Data['id'])->increment('followers');
                     'id_following' => $follow,
                     ]);
                     DB::table('creators')->where('id',$Data['id'])->decrement('followers');
-                    
 
     }
 

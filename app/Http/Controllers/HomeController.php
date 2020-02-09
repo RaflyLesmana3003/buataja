@@ -5,13 +5,16 @@ use Socialite;
 use App\follower;
 use App\creator;
 use App\User;
+// use App\Notifications\Templatenotify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\membership_expired;
 
 class HomeController extends Controller
 {
+  
     /**
      * Create a new controller instance.
      *
@@ -19,6 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+
         $this->middleware(['auth']);
     }
 
@@ -30,6 +34,8 @@ class HomeController extends Controller
 
     public function index()
     {
+        
+        // dd();
         $date = date("Y-m-d");
         $ifmember = DB::table('memberships')->whereRaw('memberships.id_user = ('.Auth::user()->id.') AND memberships.status = 1 ')->get();
 
@@ -39,8 +45,21 @@ class HomeController extends Controller
                     DB::table('memberships')->where('id',$ifmembers->id)->update([
                         'status' => 0,
                         ]);
-                    DB::table('creators')->where('id',$ifmembers->id_creator)->decrement('followers');
 
+                        //ambildata
+                        $creatora = DB::table('creators')->where('id', '=',$ifmembers->id_creator)->first();
+                        $creatorsa = DB::table('users')->where('id', '=',$creatora->ID_USER)->first();
+                        $paket = DB::table('paket')->where('id', '=',$ifmembers->paket)->first();
+
+                        //sendnotif
+                        $data = [ 
+                            'creatorname' => $creatora->name,
+                            'paket' =>  $paket->nama_paket
+                           ];
+                        $user = new User();
+                        $user->email = $creatorsa->email;   // This is the email you want to send to.
+                        $user->notify(new membership_expired($data));
+                        // dd($creatorsa);
                 }
             }
     }

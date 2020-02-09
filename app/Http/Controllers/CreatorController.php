@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Hash;
+use App\User;
+use App\Notifications\penarikan_saldo;
 
 use Illuminate\Support\Facades\Auth;
 use Socialite;
@@ -24,6 +26,7 @@ class CreatorController extends Controller
     }
     public function penarikan(Request $request)
     {
+
         $password="0";
         $passwords=$request->get('password');
       // code...
@@ -36,16 +39,38 @@ class CreatorController extends Controller
           $kreator = $key->id;
 
       }
+
+      $fees = str_replace(".","",$request->get('jumlah'));
+
+      $fee = intval($fees) * 0.03;
+      $total = intval($fees) - intval($fee);
+    //   $fee = $fee.'000';
       DB::table('withdrawals')->insert([
         'ID_CREATOR' =>$kreator,
-        'jumlah' =>$request->get('jumlah'),
+        'fee' =>number_format(intval($fee),2,',','.'),
+        'jumlah' =>number_format(intval($fees),2,',','.'),
+        'total' =>number_format(intval($total),2,',','.'),
         'atas_nama' =>$request->get('atasnama'),
         'bank' =>$request->get('bank'),
         'rekening_tujuan' =>$request->get('norekening'),
         'status' =>1,
         'created_at' =>now(),
+        ]);
 
-     ]);
+        $creatora = DB::table('creators')->where('id', '=',$kreator)->first();
+        $creatorsa = DB::table('users')->where('id', '=',$creatora->ID_USER)->first();
+
+     $data = [ 
+        'date' => date("Y-m-d"),
+        'namacreator' =>$creatora->name,
+        'fee' =>number_format(intval($fee),2,',','.'),
+        'jumlah' =>number_format(intval($fees),2,',','.'),
+        'total' =>number_format(intval($total),2,',','.'),
+       ];
+    
+      $user = new User();
+      $user->email = $creatorsa->email;   // This is the email you want to send to.
+      $user->notify(new penarikan_saldo($data));
         }else{
           return response(['data'=>"password salah",'tipe'=>"danger"], 404);
         }
@@ -54,6 +79,7 @@ class CreatorController extends Controller
 
       
     }
+
 public function databank(Request $request)
 {
   // code...
