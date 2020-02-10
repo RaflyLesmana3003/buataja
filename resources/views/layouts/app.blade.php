@@ -104,6 +104,25 @@
                             </div>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#navbar-home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-maps">
+                                <i class="fa fa-users text-primary"></i>
+                                <span class="nav-link-text">kreator</span>
+                            </a>
+                            <div class="collapse" id="navbar-home">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201') }}" class="nav-link">dukungan</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201/kreator') }}" class="nav-link">diikuti</a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a href="{{ url('list/konten') }}" class="nav-link">daftar konten</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#navbar-maps" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-maps">
                                 <i class="ni ni-spaceship text-primary"></i>
                                 <span class="nav-link-text">Konten</span>
@@ -132,7 +151,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('edit#paket') }}">
+                            <a class="nav-link" href="{{ url('de95b43bceeb4b998aed4aed5cef1ae7#paket') }}">
                                 <i class="fa fa-archive text-primary"></i>
                                 <span class="nav-link-text">paket</span>
                             </a>
@@ -154,11 +173,17 @@
                                     <li class="nav-item">
                                         <a href="{{ url('de95b43bceeb4b998aed4aed5cef1ae7') }}" class="nav-link">pengaturan kreator</a>
                                     </li>
-                                    <!-- <li class="nav-item">
-                                        <a href="{{ url('f2a2dc9c8f00c0aff80756a667123372') }}" class="nav-link">verifikasi akun<span class="fa fa-check"></span></a>
-                                    </li> -->
+                                    <li class="nav-item">
+                                        <a href="{{ url('de95b43bceeb4b998aed4aed5cef1ae7/user') }}" class="nav-link">pengaturan user</a>
+                                    </li>
                                 </ul>
                             </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"">
+                                <i class="ni ni-user-run text-primary"></i>
+                                <span class="nav-link-text">Logout</span>
+                            </a>
                         </li>
                         @else
                         <li class="nav-item">
@@ -167,6 +192,38 @@
                                 <span class="nav-link-text">Home</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#navbar-home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-maps">
+                                <i class="fa fa-users text-primary"></i>
+                                <span class="nav-link-text">kreator</span>
+                            </a>
+                            <div class="collapse" id="navbar-home">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201') }}" class="nav-link">dukungan</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201/kreator') }}" class="nav-link">diikuti</a>
+                                    </li>
+                                    <!-- <li class="nav-item">
+                                        <a href="{{ url('list/konten') }}" class="nav-link">daftar konten</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('de95b43bceeb4b998aed4aed5cef1ae7/user') }}">
+                                <i class="fa fa-cog text-primary"></i>
+                                <span class="nav-link-text">pengaturan</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"">
+                                <i class="ni ni-user-run text-primary"></i>
+                                <span class="nav-link-text">Logout</span>
+                            </a>
+                        </li>
+                        
                         @endif
                         @else
                         @if (Route::has('login'))
@@ -311,7 +368,8 @@
 
             <li class="nav-item d-none d-lg-block text-dark">
               <a class="nav-link text-dark" href="{{url('/8f8fe8570a6fca0299bce1c90079cbe6/1')}}" >
-                gabung jadi kreator
+              <button class="btn btn-primary">gabung jadi kreator</button>
+                
               </a>
             </li>
             @endif

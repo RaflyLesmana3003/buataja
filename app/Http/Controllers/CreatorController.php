@@ -37,13 +37,22 @@ class CreatorController extends Controller
       $creator = DB::table('creators')->where('ID_USER', '=',Auth::user()->id)->get();
       foreach ($creator as $key) {
           $kreator = $key->id;
-
+          $getsaldo = $key->saldo;
       }
+
+      
 
       $fees = str_replace(".","",$request->get('jumlah'));
 
       $fee = intval($fees) * 0.03;
       $total = intval($fees) - intval($fee);
+      if (intval($getsaldo) < intval($fees)) {
+        return response(['data'=>"permintaan penarikan tidak sesuai dengan total saldo",'tipe'=>"danger"], 404);
+      }
+      $updatesaldo = intval($getsaldo) - intval($fees);
+      DB::table('creators')->where('id',$kreator)->update([
+        'saldo' =>  $updatesaldo,
+        ]);
     //   $fee = $fee.'000';
       DB::table('withdrawals')->insert([
         'ID_CREATOR' =>$kreator,
@@ -57,6 +66,8 @@ class CreatorController extends Controller
         'created_at' =>now(),
         ]);
 
+        
+
         $creatora = DB::table('creators')->where('id', '=',$kreator)->first();
         $creatorsa = DB::table('users')->where('id', '=',$creatora->ID_USER)->first();
 
@@ -67,7 +78,9 @@ class CreatorController extends Controller
         'jumlah' =>number_format(intval($fees),2,',','.'),
         'total' =>number_format(intval($total),2,',','.'),
        ];
-    
+       
+
+
       $user = new User();
       $user->email = $creatorsa->email;   // This is the email you want to send to.
       $user->notify(new penarikan_saldo($data));
@@ -92,9 +105,17 @@ public function databank(Request $request)
 }
 public function saldotarik()
 {
+    $kreator = 0;
+      $creator = DB::table('creators')->where('ID_USER', '=',Auth::user()->id)->get();
+      foreach ($creator as $key) {
+          $kreator = $key->id;
+      }
   // code...
+  $pendapatan = DB::table('creators')->where('id', '=', $kreator)->sum('saldo');
+      $pendapatan = (int)$pendapatan;
+      $pendapatan = number_format($pendapatan,2,",",".");
   $creator = DB::table('creators')->where('ID_USER', '=',Auth::user()->id)->get();
-  return view('kreator/tariksaldo',['creator' => $creator]);
+  return view('kreator/tariksaldo',['creator' => $creator,'pendapatan' => $pendapatan]);
 }
 public function saldo()
     {
@@ -107,10 +128,10 @@ public function saldo()
       foreach ($creator as $key) {
           $kreator = $key->id;
       }
-      $pendapatan = DB::table('transaksis')->where('ID_CREATOR', '=', $kreator)->where('status', '=', "pending")->sum('harga');
+      $pendapatan = DB::table('creators')->where('id', '=', $kreator)->sum('saldo');
       $pendapatan = (int)$pendapatan;
       $pendapatan = number_format($pendapatan,2,",",".");
-      $transaksi = DB::table('transaksis')->where('transaksis.ID_CREATOR', '=', $kreator)->where('status', '=', "pending")->join('users', 'transaksis.ID_USER', '=', 'users.id')->join('paket', 'transaksis.ID_PAKET', '=', 'paket.id')->select('transaksis.*','paket.nama_paket','users.name','users.email','users.photo')->get();
+      $transaksi = DB::table('transaksis')->where('transaksis.ID_CREATOR', '=', $kreator)->where('status', '=', "success")->join('users', 'transaksis.ID_USER', '=', 'users.id')->join('paket', 'transaksis.ID_PAKET', '=', 'paket.id')->select('transaksis.*','paket.nama_paket','users.name','users.email','users.photo')->get();
       $with = DB::table('withdrawals')->where('withdrawals.ID_CREATOR', '=', $kreator)->join('bank', 'withdrawals.bank', '=', 'bank.code')->get();
 
 return View("kreator/saldo",['creator' => $creator,'with'=>$with,'pendapatan'=>$pendapatan,'transaksi'=>$transaksi]);

@@ -48,7 +48,8 @@ class membership_expired extends Notification
                     ->subject('pemberitahuan masa expired')
                     ->greeting('hi sayang sekali')
                     ->line(new HtmlString('sudah satu bulan sejak anda membeli paket <strong style="color:#E7513B;">'.$this->data['paket'].'</strong> dari <strong style="color:#E7513B;">'.$this->data['creatorname'].'</strong>'))
-                    ->action('Notification Action', url('/'));
+                    ->action('buataja.id', url('/'));
+
     }
 
     /**

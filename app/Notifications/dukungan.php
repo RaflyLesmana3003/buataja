@@ -50,7 +50,7 @@ class dukungan extends Notification
                 ->line(new HtmlString('<h1 style="color:#E7513B;"><strong><center> '.$this->data['username'].'</center></strong></h1>'))
                 ->line('telah mendukung kamu,')
                 ->line(new HtmlString('dengan membeli paket <strong style="color:#E7513B;">'.$this->data['paket'].'</strong> milikmu.'))
-                ->action('Notification Action', url('/'));
+                ->action('buataja.id', url('/'));
                 // ->line(new HtmlString('The <strong>introduction</strong> to the notification.'))
                 // ->line('The <strong>introduction</strong> to the notification.')
                 // ->line(new HtmlString('Due Date: <strong>' . $this->data['paket'].'</strong>'))

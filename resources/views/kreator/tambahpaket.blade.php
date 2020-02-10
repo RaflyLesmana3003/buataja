@@ -314,7 +314,7 @@ $("#pp").change(function() {
         data:formData,
 
         success:function(data){
-            window.location.href = "{{url('edit#paket')}}";
+            window.location.href = "{{url('de95b43bceeb4b998aed4aed5cef1ae7#paket')}}";
         },
           error: function(file, response)
           {

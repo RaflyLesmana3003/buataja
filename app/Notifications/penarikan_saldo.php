@@ -50,7 +50,8 @@ class penarikan_saldo extends Notification
                     ->line(new HtmlString('Permintaan Pencairan: Rp.'.$this->data['jumlah'].' <br>'))
                     ->line(new HtmlString('Biaya Layanan: Rp.'.$this->data['fee'].' <br>'))
                     ->line(new HtmlString('Nominal Pencairan: <strong> Rp.'.$this->data['total'].'</strong> <br>')) 
-                    ->action('Notification Action', url('/'));
+                    ->action('buataja.id', url('/'));
+
     }
 
     /**

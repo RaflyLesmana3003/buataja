@@ -47,7 +47,8 @@ class following extends Notification
                     ->subject('followers baru nih!!')
                     ->greeting('ada follower baru kamu nih')     
                     ->line(new HtmlString('<strong style="color:#E7513B;">'.$this->data['username'].'</strong> telah mengikuti anda!'))
-                    ->action('Notification Action', url('/'));
+                    ->action('buataja.id', url('/'));
+
                 }
 
     /**

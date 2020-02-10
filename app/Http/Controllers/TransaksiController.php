@@ -212,7 +212,9 @@ class TransaksiController extends Controller
           
   }
                 DB::table('creators')->where('id',$transaksi->ID_CREATOR)->increment('followers');
-
+                DB::table('creators')->where('id',$transaksi->ID_CREATOR)->update([
+                  'saldo' =>  $transaksi->harga,
+                  ]);
                  // TODO set payment status in merchant's database to 'Success'
                  // $donation->addUpdate("Transaction order_id: " . $orderId ." successfully captured using " . $type);
                  $donation->setSuccess();
@@ -315,6 +317,10 @@ class TransaksiController extends Controller
           
   }
   DB::table('creators')->where('id',$transaksi->ID_CREATOR)->increment('followers');
+  // dd(str_replace(".","", $transaksi->harga));
+  DB::table('creators')->where('id',$transaksi->ID_CREATOR)->update([
+    'saldo' =>  $transaksi->harga,
+    ]);
              // TODO set payment status in merchant's database to 'Settlement'
              // $donation->addUpdate("Transaction order_id: " . $orderId ." successfully transfered using " . $type);
              $donation->setSuccess();

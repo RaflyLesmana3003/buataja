@@ -20,7 +20,6 @@ width: 100% !important;
 .button {
 width: 100% !important;
 }
-
 }
 </style>
 
@@ -28,7 +27,6 @@ width: 100% !important;
 <tr>
 <td align="center">
 <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-
 {{ $header ?? '' }}
 
 <!-- Email Body -->

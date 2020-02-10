@@ -73,14 +73,12 @@ function time_elapsed_string($datetime, $full = false) {
                     </div>
                   </div>
                 </div>
-                <div class="row text-center">
-
+              <div class="row text-center">
                 <div class="col-12  mt-3 mb-0">
                 <a href="{{url('f27fc78ffa140e97e0c535374a2a2213/tarik')}}" class="btn btn-outline-primary btn-xl ">tarik saldo</a>
+                </div>
               </div>
-              </div>
-
-              </div>
+            </div>
           </div>
         </div>
 
@@ -139,7 +137,7 @@ function time_elapsed_string($datetime, $full = false) {
                 <td>{{$transaksis->name}}</td>
                 <td>{{$transaksis->email}}</td>
                 <td>{{$transaksis->nama_paket}}</td>
-                <td>{{$transaksis->harga}}</td>
+                <td>{{number_format($transaksis->harga,2,",",".")}}</td>
                 <td>{{$transaksis->updated_at}}</td>
               </tr>
               @endforeach

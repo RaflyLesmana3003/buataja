@@ -105,7 +105,7 @@ tambah();
 
             success:function(data){
 
-        $(location).attr('href',"{{url('edit')}}");
+        $(location).attr('href',"{{url('de95b43bceeb4b998aed4aed5cef1ae7')}}");
               // next(nu);
 
             }

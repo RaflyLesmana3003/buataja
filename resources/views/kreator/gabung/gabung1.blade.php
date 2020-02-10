@@ -112,7 +112,7 @@
             success:function(data){
 
               // next(nu);
-              $(location).attr('href',"{{url('gabung/2')}}");
+              $(location).attr('href',"{{url('8f8fe8570a6fca0299bce1c90079cbe6/2')}}");
 
             },error:function(data)
             {

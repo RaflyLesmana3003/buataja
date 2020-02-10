@@ -51,7 +51,8 @@ class pendukung extends Notification
         ->line('dari :')
         ->line(new HtmlString('<h1 style="color:#E7513B;"><strong><center> '.$this->data['creatorname'].'</center></strong></h1>'))
         ->line('telah berhasil.')
-        ->action('Notification Action', url('/'));
+        ->action('buataja.id', url('/'));
+
         // ->line(new HtmlString('dengan membeli paket <strong style="color:#E7513B;">'.$this->data['paket'].'</strong> milikmu.'))
         
        

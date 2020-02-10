@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKycToCreators extends Migration
+class AddSaldoToCreators extends Migration
 {
     /**
      * Run the migrations.
@@ -15,10 +15,8 @@ class AddKycToCreators extends Migration
     {
         Schema::table('creators', function (Blueprint $table) {
             //
-            $table->string('ktp')->nullable();
-            $table->string('wajah')->nullable();
-            $table->string('wajahktp')->nullable();
-            $table->string('rekening')->nullable();
+            $table->string('saldo')->default(0);
+
         });
     }
 
