@@ -54,7 +54,7 @@ function time_elapsed_string($datetime, $full = false) {
       </div>
       <!-- Card stats -->
       <div class="row">
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
           <div class="card card-stats">
             <!-- Card body -->
               <div class="card-body">
@@ -81,7 +81,7 @@ function time_elapsed_string($datetime, $full = false) {
               </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-6">
           <div class="card card-stats">
             <!-- Card body -->
             <div class="card-body">
@@ -107,7 +107,7 @@ function time_elapsed_string($datetime, $full = false) {
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        <div class="col-xl-4 col-md-12">
           <div class="card card-stats">
             <!-- Card body -->
             <div class="card-body">
@@ -133,9 +133,8 @@ function time_elapsed_string($datetime, $full = false) {
             </div>
           </div>
         </div>
-        <div class="col-xl-3 col-md-6">
+        <!-- <div class="col-xl-3 col-md-6">
           <div class="card card-stats">
-            <!-- Card body -->
             <div class="card-body">
               <div class="row">
                 <div class="col">
@@ -153,13 +152,9 @@ function time_elapsed_string($datetime, $full = false) {
                   </div>
                 </div>
               </div>
-              <!-- <p class="mt-3 mb-0 text-sm">
-                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                <span class="text-nowrap">Since last month</span>
-              </p> -->
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -176,7 +171,7 @@ function time_elapsed_string($datetime, $full = false) {
           </p> -->
         </div>
         <div class="table-responsive py-4">
-          <table class="table table-flush" id="datatable-basic">
+          <table class="table table-flush" id="datatable-basic3">
             <thead class="thead-light">
               <tr>
                 <th>photo</th>
@@ -198,15 +193,15 @@ function time_elapsed_string($datetime, $full = false) {
               </tr>
             </tfoot>
             <tbody>
-              @if ($member[0]='0')
+              @if (isset($member))
               @foreach ($member as $members)
               <tr>
 
                 <td>
 
-                  @if($members->user->photo != '')
+                  @if($members[0]->user->photo != '')
                       <a href="#">
-                      <img src="{{ url('storage/file/pp/'.$members->user->photo) }}"  class="avatar avatar-md rounded-circle">
+                      <img src="{{ url('storage/file/pp/'.$members[0]->user->photo) }}"  class="avatar avatar-md rounded-circle">
                       </a>
 
                       @else
@@ -215,11 +210,11 @@ function time_elapsed_string($datetime, $full = false) {
                       </a>
                       @endif
                     </td>
-                <td>{{$members->user->name}}</td>
-                <td>{{$members->user->email}}</td>
-                <td>{{$members->paket}}</td>
-                <td>{{$members->tenggatwaktu}}</td>
-                <td><?php echo time_elapsed_string($members->tenggatwaktu) ?></td>
+                <td>{{$members[0]->user->name}}</td>
+                <td>{{$members[0]->user->email}}</td>
+                <td>{{$members[0]->paket}}</td>
+                <td>{{$members[0]->tenggatwaktu}}</td>
+                <td><?php echo time_elapsed_string($members[0]->tenggatwaktu) ?></td>
               </tr>
               @endforeach
               @endif
@@ -238,7 +233,7 @@ function time_elapsed_string($datetime, $full = false) {
           </p> -->
         </div>
         <div class="table-responsive py-4">
-          <table class="table table-flush" id="datatable-basic2">
+          <table class="table table-flush" id="datatable-basic4">
             <thead class="thead-light">
               <tr>
                 <th>photo</th>
@@ -254,15 +249,15 @@ function time_elapsed_string($datetime, $full = false) {
               </tr>
             </tfoot>
             <tbody>
-            @if ($follow[0]='0')
+            @if (isset($follow))
               @foreach ($follow as $follows)
               <tr>
 
                 <td>
 
-                  @if($follows->photo != "")
+                  @if($follows[0]->photo != "")
                       <a href="#">
-                      <img src="{{ url('storage/file/pp/'.$follows->photo) }}"  class="avatar avatar-md rounded-circle">
+                      <img src="{{ url('storage/file/pp/'.$follows[0]->photo) }}"  class="avatar avatar-md rounded-circle">
                       </a>
 
                       @else
@@ -271,8 +266,8 @@ function time_elapsed_string($datetime, $full = false) {
                       </a>
                       @endif
                     </td>
-                <td>{{$follows->name}}</td>
-                <td>{{$follows->email}}</td>
+                <td>{{$follows[0]->name}}</td>
+                <td>{{$follows[0]->email}}</td>
               </tr>
               @endforeach
               @endif

@@ -173,8 +173,13 @@
      <section class="py-6 pb-9 bg-default">
        <div class="row justify-content-center text-center">
          <div class="col-md-6">
-           <h2 class="display-3 text-white">Kenapa harus ke buataja?</h3>
-               <p class="text-white mt-4">Dengan membantu 1 kreator, anda juga telah berkontribusi kepada perkembangan konten kreator lain nya, kami buataja.id mewakili seluruh konten kreator di Indonesia, mengucapkan terimakasih atas apresiasi anda kepada konten kreator lokal, maupun Internasional.</p>
+           <p class="display-3 text-white">Kenapa harus ke buataja?</p>
+               <p class="text-white">Dengan membantu 1 kreator, 
+               anda juga telah berkontribusi kepada perkembangan 
+               konten kreator lain nya, kami buataja.id mewakili 
+               seluruh konten kreator di Indonesia, mengucapkan 
+               terimakasih atas apresiasi anda kepada konten 
+               kreator lokal, maupun Internasional.</p>
          </div>
        </div>
      </section>
@@ -328,96 +333,29 @@
              
            </div>
          </div>
-           <a href="./docs/foundation/icons.html">
-             <div class="icons-container blur-item mt-5">
+           <!-- <a href="./docs/foundation/icons.html">
+             <div class="icons-container blur-item mt-5"> --> 
                <!-- Center -->
-               <i class="icon ni ni-diamond"></i>
+               <!-- <i class="icon ni ni-diamond"></i> -->
                <!-- Right 1 -->
-               <i class="icon icon-sm ni ni-album-2"></i>
+               <!-- <i class="icon icon-sm ni ni-album-2"></i>
                <i class="icon icon-sm ni ni-app"></i>
-               <i class="icon icon-sm ni ni-atom"></i>
+               <i class="icon icon-sm ni ni-atom"></i> -->
                <!-- Right 2 -->
-               <i class="icon ni ni-bag-17"></i>
+               <!-- <i class="icon ni ni-bag-17"></i>
                <i class="icon ni ni-bell-55"></i>
-               <i class="icon ni ni-credit-card"></i>
+               <i class="icon ni ni-credit-card"></i> -->
                <!-- Left 1 -->
-               <i class="icon icon-sm ni ni-briefcase-24"></i>
+               <!-- <i class="icon icon-sm ni ni-briefcase-24"></i>
                <i class="icon icon-sm ni ni-building"></i>
-               <i class="icon icon-sm ni ni-button-play"></i>
+               <i class="icon icon-sm ni ni-button-play"></i> -->
                <!-- Left 2 -->
-               <i class="icon ni ni-calendar-grid-58"></i>
+               <!-- <i class="icon ni ni-calendar-grid-58"></i>
                <i class="icon ni ni-camera-compact"></i>
                <i class="icon ni ni-chart-bar-32"></i>
              </div>
-           </a>
+           </a> -->
      </section>
- <!--     <section class="py-7">
-       <div class="container">
-         <div class="row row-grid justify-content-center">
-           <div class="col-lg-8 text-center">
-             <h2 class="display-3">Do you love this awesome <span class="text-success">Dashboard for Bootstrap 4?</span></h2>
-             <p class="lead">Cause if you do, it can be yours now. Hit the button below to navigate to get the free version or purchase a license for your next project. Build a new web app or give an old Bootstrap project a new look!</p>
-             <div class="btn-wrapper">
-               <a href="https://www.creative-tim.com/product/argon-dashboard" class="btn btn-neutral mb-3 mb-sm-0" target="_blank">
-                 <span class="btn-inner--text">Get FREE version</span>
-               </a>
-               <a href="https://www.creative-tim.com/product/argon-dashboard-pro" class="btn btn-primary btn-icon mb-3 mb-sm-0">
-                 <span class="btn-inner--icon"><i class="ni ni-basket"></i></span>
-                 <span class="btn-inner--text">Purchase now</span>
-               </a>
-             </div>
-             <div class="text-center">
-               <h4 class="display-4 mb-5 mt-5">Available on these technologies</h4>
-               <div class="row justify-content-center">
-                 <div class="w-10 mx-2 mb-2">
-                   <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank" data-toggle="tooltip" data-original-title="Bootstrap 4 - Most popular front-end component library">
-                     <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/bootstrap.jpg" class="img-fluid rounded-circle shadow shadow-lg--hover">
-                   </a>
-                 </div>
-                 <div class="w-10 mx-2 mb-2">
-                   <a href=" https://www.creative-tim.com/product/vue-argon-dashboard" target="_blank" data-toggle="tooltip" data-original-title="Vue.js - The progressive javascript framework">
-                     <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/vue.jpg" class="img-fluid rounded-circle">
-                   </a>
-                 </div>
-                 <div class="w-10 mx-2 mb-2">
-                   <a href=" https://www.creative-tim.com/product/argon-dashboard" target="_blank" data-toggle="tooltip" data-original-title="Sketch - Digital design toolkit">
-                     <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/sketch.jpg" class="img-fluid rounded-circle">
-                   </a>
-                 </div>
-                 <div class="w-10 mx-2 mb-2">
-                   <a href=" https://www.creative-tim.com/product/argon-dashboard-angular" target="_blank" data-toggle="tooltip" data-original-title="Angular - One framework. Mobile &amp; desktop">
-                     <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/angular.jpg" class="img-fluid rounded-circle">
-                   </a>
-                 </div>
-                 <div class="w-10 mx-2 mb-2">
-                   <a href=" https://www.creative-tim.com/product/argon-dashboard-react" target="_blank" data-toggle="tooltip" data-original-title="React - A JavaScript library for building user interfaces">
-                     <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/react.jpg" class="img-fluid rounded-circle">
-                   </a>
-                 </div>
-                 <div class="w-10 mx-2 mb-2">
-                   <a href=" https://www.creative-tim.com/product/argon-dashboard-laravel" target="_blank" data-toggle="tooltip" data-original-title="Laravel - The PHP Framework For Web Artisans">
-                     <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/laravel_logo.png" class="img-fluid rounded-circle">
-                   </a>
-                 </div>
-                 <div class="w-10 mx-2 mb-2">
-                   <a href=" https://www.creative-tim.com/product/argon-dashboard-nodejs" target="_blank" data-toggle="tooltip" data-original-title="Node.js - a JavaScript runtime built on Chrome's V8 JavaScript engine">
-                     <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/nodejs-logo.jpg" class="img-fluid rounded-circle">
-                   </a>
-                 </div>
-                 <div class="w-10 mx-2 mb-2">
-                   <a href=" https://www.adobe.com/products/photoshop.html" target="_blank" data-toggle="tooltip" data-original-title="[Coming Soon] Adobe Photoshop - Software for digital images manipulation">
-                     <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg" class="img-fluid rounded-circle opacity-3">
-                   </a>
-                 </div>
-               </div>
-               <div class="spinner-border" role="status">
-                 <span class="sr-only">Loading...</span>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </section> -->
    </div>
    <!-- Footer -->
    <footer class="py-5" id="footer-main">
@@ -428,22 +366,22 @@
              &copy; 2019 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
            </div>
          </div>
-         <div class="col-xl-6">
-           <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-             <li class="nav-item">
-               <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-             </li>
-             <li class="nav-item">
-               <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-             </li>
-             <li class="nav-item">
-               <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-             </li>
-             <li class="nav-item">
-               <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
-             </li>
-           </ul>
-         </div>
+         <div class="col-lg-6">
+                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">buataja.id</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">tentang kami</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com/license" class="nav-link" target="_blank">License</a>
+                        </li>
+                    </ul>
+                </div>
        </div>
      </div>
    </footer>

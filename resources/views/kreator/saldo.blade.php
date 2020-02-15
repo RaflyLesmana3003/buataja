@@ -160,37 +160,33 @@ function time_elapsed_string($datetime, $full = false) {
           <table class="table table-flush" id="datatable-basic2">
             <thead class="thead-light">
               <tr>
+                <th>waktu penarikan</th>
+                <th>status</th>
                 <th>jumlah</th>
+                <th>fee</th>
                 <th>rekening tujuan</th>
                 <th>atas nama</th>
                 <th>bank tujuan</th>
-                <th>waktu penarikan</th>
-
-                <th>status</th>
               </tr>
             </thead>
             <tfoot>
               <tr>
+                <th>waktu penarikan</th>
+                <th>status</th>
                 <th>jumlah</th>
+                <th>fee</th>
                 <th>rekening tujuan</th>
                 <th>atas nama</th>
                 <th>bank tujuan</th>
-                <th>waktu penarikan</th>
-
-                <th>status</th>
               </tr>
             </tfoot>
             <tbody>
               @if (count($with)>0)
               @foreach ($with as $withs)
               <tr>
+              <td>{{$withs->created_at}}</td>
 
-                <td>Rp.{{$withs->jumlah}}</td>
-                <td>{{$withs->rekening_tujuan}}</td>
-                <td>{{$withs->atas_nama}}</td>
-                <td>{{$withs->name}}</td>
-                <td>{{$withs->created_at}}</td>
-                <td>
+              <td>
                   @if ($withs->status == 1)
                   <span class="badge badge-pill badge-primary">pending</span>
                   @elseif($withs->status == 2)
@@ -200,6 +196,12 @@ function time_elapsed_string($datetime, $full = false) {
                   <span class="badge badge-pill badge-primary">ditolak</span>
                   @endif
                   </td>
+                <td>Rp.{{$withs->total}}</td>
+                <td>Rp.{{$withs->fee}}</td>
+                <td>{{$withs->rekening_tujuan}}</td>
+                <td>{{$withs->atas_nama}}</td>
+                <td>{{$withs->name}}</td>
+               
               </tr>
               @endforeach
               @endif
@@ -209,4 +211,8 @@ function time_elapsed_string($datetime, $full = false) {
       </div>
     </div>
   </div>
+
+  <script>
+  
+  </script>
 @endsection

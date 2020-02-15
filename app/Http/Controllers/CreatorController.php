@@ -131,29 +131,34 @@ public function saldo()
       $pendapatan = DB::table('creators')->where('id', '=', $kreator)->sum('saldo');
       $pendapatan = (int)$pendapatan;
       $pendapatan = number_format($pendapatan,2,",",".");
-      $transaksi = DB::table('transaksis')->where('transaksis.ID_CREATOR', '=', $kreator)->where('status', '=', "success")->join('users', 'transaksis.ID_USER', '=', 'users.id')->join('paket', 'transaksis.ID_PAKET', '=', 'paket.id')->select('transaksis.*','paket.nama_paket','users.name','users.email','users.photo')->get();
-      $with = DB::table('withdrawals')->where('withdrawals.ID_CREATOR', '=', $kreator)->join('bank', 'withdrawals.bank', '=', 'bank.code')->get();
-
+      $transaksi = DB::table('transaksis')->where('transaksis.ID_CREATOR', '=', $kreator)->where('status', '=', "success")->join('users', 'transaksis.ID_USER', '=', 'users.id')->join('paket', 'transaksis.ID_PAKET', '=', 'paket.id')->select('transaksis.*','paket.nama_paket','users.name','users.email','users.photo')->orderBy('transaksis.created_at', 'desc')->get();
+      $with = DB::table('withdrawals')->where('withdrawals.ID_CREATOR', '=', $kreator)->join('bank', 'withdrawals.bank', '=', 'bank.code')->orderBy('created_at', 'desc')->get();
+// dd($with);
 return View("kreator/saldo",['creator' => $creator,'with'=>$with,'pendapatan'=>$pendapatan,'transaksi'=>$transaksi]);
     }
 
     public function dashboard()
     {
       // code...
-      $follow[]='0';
-      $members[]='0';
+      
       $i = 0;
+      $a = 0;
       $kreator = 0;
       $creator = DB::table('creators')->where('ID_USER', '=',Auth::user()->id)->get();
       foreach ($creator as $key) {
           $kreator = $key->id;
       }
       $followers = DB::table('followers')->select('id_user','id_following')->where('id_following', 'LIKE', '%'.$kreator.'%')->get();
+      $follow;
       foreach ($followers as $key) {
           $user = DB::table('users')->where('id', '=',$key->id_user)->select('id','name','email','photo')->get();
-          $follow[] = $user[0];
-      }
-      $pendapatan = DB::table('transaksis')->where('ID_CREATOR', '=', $kreator)->where('status', '=', "pending")->sum('harga');
+
+          $follow[$a] = $user;
+          $a++;
+        }
+
+      $pendapatan = DB::table('creators')->where('id', '=', $kreator)->sum('saldo');
+
       $pendapatan = (int)$pendapatan;
       $pendapatan = number_format($pendapatan,2,",",".");
       $view = DB::table('posts')->where('ID_CREATOR', '=', $kreator)->avg('view');
@@ -163,6 +168,8 @@ return View("kreator/saldo",['creator' => $creator,'with'=>$with,'pendapatan'=>$
       //     $follow[] = $user[0];
       // }
       $member = DB::table('memberships')->where('id_creator', '=', $kreator)->get();
+
+
       foreach ($member as $key) {
           $user = DB::table('users')->where('id', '=',$key->id_user)->select('id','name','email','photo')->get();
           $member[$i]->user = $user[0];
@@ -172,14 +179,33 @@ return View("kreator/saldo",['creator' => $creator,'with'=>$with,'pendapatan'=>$
 
               $member[$i]->paket = $keys->nama_paket;
           }
-          $members[] = $member[$i];
+          $members[] = array($member[$i]);
 
 $i++;
 }
 
+// dd($follow);
+        if (!isset($members) && !isset($follow)) {
+            # code...
+           return View("kreator/dashboard",['creator' => $creator,'pendapatan'=>$pendapatan,'view'=>$views]);
 
+        }
+        elseif (isset($members) && isset($follow)) {
+            # code...
+           return View("kreator/dashboard",['creator' => $creator,'follow'=>$follow,'member'=>$members,'pendapatan'=>$pendapatan,'view'=>$views]);
 
-return View("kreator/dashboard",['creator' => $creator,'follow'=>$follow,'member'=>$members,'pendapatan'=>$pendapatan,'view'=>$views]);
+        }
+        elseif (!isset($members)) {
+            # code...
+           return View("kreator/dashboard",['creator' => $creator,'follow'=>$follow,'pendapatan'=>$pendapatan,'view'=>$views]);
+
+        }elseif (!isset($follow)) {
+            # code...
+           return View("kreator/dashboard",['creator' => $creator,'member'=>$members,'pendapatan'=>$pendapatan,'view'=>$views]);
+
+        }
+// dd($members);
+
     }
 
     public function verifikasi()

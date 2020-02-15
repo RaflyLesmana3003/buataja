@@ -321,7 +321,7 @@ var arrInputs = document.getElementsByTagName("input");
           $("#message").append('<div  class="aa alert alert-success alert-block"><button type="button" class="close" data-dismiss="alert">×</button> <strong>karya anda baru diposting</strong></div>');
             setTimeout("$('.aa').fadeOut(1000);", 3000);
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            setTimeout("window.location.href = '{{url('home/kreator')}}';", 3000);
+            setTimeout("window.location.href = '{{url('106a6c241b8797f52e1e77317b96a201/kreator')}}';", 3000);
         },
           error: function(file, response)
           {
@@ -345,7 +345,7 @@ var arrInputs = document.getElementsByTagName("input");
           $("#message").append('<div  class="aa alert alert-success alert-block"><button type="button" class="close" data-dismiss="alert">×</button> <strong>karya anda baru diposting</strong></div>');
             setTimeout("$('.aa').fadeOut(1000);", 3000);
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            setTimeout("window.location.href = '{{url('home/kreator')}}';", 3000);
+            setTimeout("window.location.href = '{{url('106a6c241b8797f52e1e77317b96a201/kreator')}}';", 3000);
         },
           error: function(file, response)
           {

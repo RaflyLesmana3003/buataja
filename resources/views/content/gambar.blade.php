@@ -312,7 +312,7 @@ $("#form").submit(function(e) {
             setTimeout("$('.aa').fadeOut(1000);", 3000);
             $("#message").attr("id", "message1");
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            setTimeout("window.location.href = '{{url('home/kreator')}}';", 1000);
+            setTimeout("window.location.href = '{{url('106a6c241b8797f52e1e77317b96a201/kreator')}}';", 1000);
         },
           error: function(file, response)
           {
@@ -337,7 +337,7 @@ $("#form").submit(function(e) {
             setTimeout("$('.aa').fadeOut(1000);", 3000);
             $("#message").attr("id", "message1");
             $("html, body").animate({ scrollTop: 0 }, "slow");
-            setTimeout("window.location.href = '{{url('home/kreator')}}';", 1000);
+            setTimeout("window.location.href = '{{url('106a6c241b8797f52e1e77317b96a201/kreator')}}';", 1000);
 
         },
           error: function(file, response)

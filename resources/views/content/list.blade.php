@@ -62,7 +62,7 @@
               </p> -->
             </div>
             <div class="table-responsive py-4">
-              <table class="table table-flush" id="datatable-basic">
+              <table class="table table-flush" id="datatable-basic1">
                 <thead class="thead-light">
                   <tr>
                     <th>judul</th>

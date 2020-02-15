@@ -39,7 +39,7 @@ Route::get('disconnect/{provider}', 'CreatorController@disconnect');
 
 Route::get('/76ea0bebb3c22822b4f0dd9c9fd021c5', function () {
     return view('content/create');
-});
+})->middleware('auth');
 
 // route bikin konten
 Route::get('/list/konten', function () {
@@ -49,10 +49,10 @@ Route::get('/list/konten', function () {
       $kreator = $key->id;
 
   }
-  $post = DB::table('posts')->where([['ID_CREATOR', '=',$kreator]])->get();
+  $post = DB::table('posts')->where([['ID_CREATOR', '=',$kreator]])->orderBy('created_at', 'desc')->get();
 
     return view('content/list',['post' => $post,]);
-});
+})->middleware('auth');
 
 
 Route::get('/76ea0bebb3c22822b4f0dd9c9fd021c5/{jenis}', function ($jenis) {

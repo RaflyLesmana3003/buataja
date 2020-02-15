@@ -104,11 +104,11 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#navbar-home" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-maps">
+                            <a class="nav-link" href="#navbar-home2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-maps">
                                 <i class="fa fa-users text-primary"></i>
                                 <span class="nav-link-text">kreator</span>
                             </a>
-                            <div class="collapse" id="navbar-home">
+                            <div class="collapse" id="navbar-home2">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
                                         <a href="{{ url('106a6c241b8797f52e1e77317b96a201') }}" class="nav-link">dukungan</a>
@@ -268,19 +268,19 @@
                     <hr class="my-3">
                     <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
+              <a class="nav-link" href="#" target="_blank">
 
                 <span class="nav-link-text text-muted">tips</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <a class="nav-link" href="#" target="_blank">
 
                 <span class="nav-link-text text-muted">tentang kami</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
+              <a class="nav-link" href="#" target="_blank">
 
                 <span class="nav-link-text text-muted">bantuan</span>
               </a>
