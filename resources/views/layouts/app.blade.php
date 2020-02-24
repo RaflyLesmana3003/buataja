@@ -111,10 +111,10 @@
                             <div class="collapse" id="navbar-home2">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201') }}" class="nav-link">dukungan</a>
+                                        <a href="{{ url('b84dc340d0bd103ac5a157ce6387ee21') }}" class="nav-link">dukungan</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201/kreator') }}" class="nav-link">diikuti</a>
+                                        <a href="{{ url('6d2f2f9fc3eb0b0d0ebf36653ad7015e/kreator') }}" class="nav-link">diikuti</a>
                                     </li>
                                     <!-- <li class="nav-item">
                                         <a href="{{ url('list/konten') }}" class="nav-link">daftar konten</a>
@@ -200,10 +200,10 @@
                             <div class="collapse" id="navbar-home">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201') }}" class="nav-link">dukungan</a>
+                                        <a href="{{ url('b84dc340d0bd103ac5a157ce6387ee21') }}" class="nav-link">dukungan</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ url('106a6c241b8797f52e1e77317b96a201/kreator') }}" class="nav-link">diikuti</a>
+                                        <a href="{{ url('6d2f2f9fc3eb0b0d0ebf36653ad7015e') }}" class="nav-link">diikuti</a>
                                     </li>
                                     <!-- <li class="nav-item">
                                         <a href="{{ url('list/konten') }}" class="nav-link">daftar konten</a>
