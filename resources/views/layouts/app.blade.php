@@ -187,6 +187,12 @@
                         </li>
                         @else
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ url('8f8fe8570a6fca0299bce1c90079cbe6/1') }}">
+                                <i class="fa fa-address-book-o  text-primary"></i>
+                                <span class="nav-link-text text-warning">gabung jadi kreator</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('106a6c241b8797f52e1e77317b96a201') }}">
                                 <i class="fa fa-home text-primary"></i>
                                 <span class="nav-link-text">Home</span>
@@ -217,6 +223,7 @@
                                 <span class="nav-link-text">pengaturan</span>
                             </a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"">
                                 <i class="ni ni-user-run text-primary"></i>

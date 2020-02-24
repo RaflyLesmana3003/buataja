@@ -86,6 +86,7 @@ class PaketController extends Controller
                 'benefit' => $request->benefit,
                 'alamat' =>0,
                 'photo' => $tumbnail,
+                'waktu' => $request->waktu,
             ]
           ]);
 

@@ -33,7 +33,7 @@
                   <div class="col-md-6">
                   <div class="custom-control custom-radio mb-3">
                     <input name="custom-radio-21"  class="custom-control-input" id="customRadio11" value="2" type="radio">
-                    <label class="custom-control-label" for="customRadio11">sebulan</label>
+                    <label class="custom-control-label" for="customRadio11">selama waktu paket</label>
                   </div>
                   </div>
           <div class="text-center">
@@ -76,7 +76,7 @@
                   <div class="col-md-6">
                   <div class="custom-control custom-radio mb-3">
                     <input name="custom-radio-2"  class="custom-control-input" id="customRadio1" value="2" type="radio">
-                    <label class="custom-control-label" for="customRadio1">sebulan</label>
+                    <label class="custom-control-label" for="customRadio1">selama waktu paket</label>
                   </div>
                   </div>
           <div class="text-center">
@@ -154,12 +154,24 @@
                                 </div>
                                 </div>
 
+                            <div class="col-md-12 mb-3">
+                                <label class="form-control-label" for="nama">nama paket</label>
+                                <select class="form-control" id="jangkawaktu" >
+                                    <option value="30">pilih jangka waktu</option>
+                                    <option value="7">seminggu</option>
+                                    <option value="30">sebulan</option>
+                                    <option value="60">2 bulan</option>
+                                    <option value="180">6 bulan</option>
+                                    <option value="360">12 bulan</option>
+                                    </select>
                             </div>
+                            </div>
+
                             <div class="col-md-12 mb-3">
                             <div class="form-group">
-                    <label class="form-control-label" for="caption">deskripsi<span class="text-danger">*</span></label>
-                    <textarea class="form-control"  id="caption" rows="2" resize="none" placeholder="hallo guys...." required></textarea>
-                  </div>
+                        <label class="form-control-label" for="caption">deskripsi<span class="text-danger">*</span></label>
+                        <textarea class="form-control"  id="caption" rows="2" resize="none" placeholder="hallo guys...." required></textarea>
+                    </div>
                             </div>
                             <br>
                             <div class="col-md-12 mb-1">
@@ -298,6 +310,7 @@ $("#pp").change(function() {
             formData.append('harga', $("#price").val());
             formData.append('desc', $("#caption").val());
             formData.append('benefit', optionValues.toString());
+            formData.append('waktu', $("#jangkawaktu").val());
             // formData.append('limit', lim);
             // formData.append('limitasi', $("#limitasi").val());
             // formData.append('alamat', alamat);

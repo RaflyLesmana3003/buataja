@@ -245,7 +245,7 @@ class TransaksiController extends Controller
            } elseif ($transaction == 'settlement') {
   //member
       $date = date("Y-m-d");
-      $date1 = strtotime(date("Y-m-d", strtotime($date)) . " +1 month");
+      $date1 = strtotime(date("Y-m-d", strtotime($date)) . " +".$paket->waktu." day");
       $date2 = date("Y-m-d",$date1);
 
   $membership = DB::table('memberships')->where('id_user', $transaksi->ID_USER)->first();
